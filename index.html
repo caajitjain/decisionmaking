@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wise Choice - Decision Making Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-balance-scale"></i> Wise Choice</h1>
+            <p class="tagline">A structured approach to making better decisions</p>
+        </header>
+
+        <main id="app">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="screen active">
+                <h2>Welcome to Wise Choice</h2>
+                <p>Making important decisions can be challenging. This tool will guide you through a structured process to help you think more clearly about your options.</p>
+                
+                <div class="input-group">
+                    <label for="decision-question">What decision are you trying to make?</label>
+                    <input type="text" id="decision-question" placeholder="E.g., Should I change my career?">
+                </div>
+                
+                <button id="start-btn" class="btn primary-btn">Let's Begin <i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Options Screen -->
+            <div id="options-screen" class="screen">
+                <h2>What are your options?</h2>
+                <p>List the different choices you're considering.</p>
+                
+                <div id="options-container">
+                    <div class="option-input">
+                        <input type="text" class="option-field" placeholder="Option 1">
+                        <button class="remove-option-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="option-input">
+                        <input type="text" class="option-field" placeholder="Option 2">
+                        <button class="remove-option-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                
+                <button id="add-option-btn" class="btn secondary-btn"><i class="fas fa-plus"></i> Add Another Option</button>
+                
+                <div class="nav-buttons">
+                    <button class="btn back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button id="to-criteria-btn" class="btn primary-btn">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Criteria Screen -->
+            <div id="criteria-screen" class="screen">
+                <h2>What matters to you in this decision?</h2>
+                <p>List factors that are important for evaluating your options.</p>
+                
+                <div id="criteria-container">
+                    <div class="criteria-input">
+                        <input type="text" class="criteria-field" placeholder="Criteria 1 (e.g., Cost)">
+                        <select class="criteria-weight">
+                            <option value="1">Low Importance</option>
+                            <option value="2">Medium Importance</option>
+                            <option value="3" selected>High Importance</option>
+                        </select>
+                        <button class="remove-criteria-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="criteria-input">
+                        <input type="text" class="criteria-field" placeholder="Criteria 2 (e.g., Time commitment)">
+                        <select class="criteria-weight">
+                            <option value="1">Low Importance</option>
+                            <option value="2" selected>Medium Importance</option>
+                            <option value="3">High Importance</option>
+                        </select>
+                        <button class="remove-criteria-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                
+                <button id="add-criteria-btn" class="btn secondary-btn"><i class="fas fa-plus"></i> Add Another Factor</button>
+                
+                <div class="nav-buttons">
+                    <button class="btn back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button id="to-evaluation-btn" class="btn primary-btn">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Evaluation Screen -->
+            <div id="evaluation-screen" class="screen">
+                <h2>Evaluate Your Options</h2>
+                <p>Rate how well each option satisfies each criterion.</p>
+                
+                <div id="evaluation-matrix"></div>
+                
+                <div class="nav-buttons">
+                    <button class="btn back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button id="calculate-btn" class="btn primary-btn">Calculate Results <i class="fas fa-calculator"></i></button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <h2>Decision Analysis Results</h2>
+                
+                <div id="results-container">
+                    <div id="scores-visual"></div>
+                    <div id="top-option-display"></div>
+                </div>
+                
+                <div id="analysis-breakdown"></div>
+                
+                <h3>Considerations Before Deciding</h3>
+                <ul id="considerations">
+                    <li>Have you considered potential risks and downsides of your top option?</li>
+                    <li>Does this decision align with your long-term goals and values?</li>
+                    <li>What information might you be missing that could change your analysis?</li>
+                    <li>How does your intuition or gut feeling compare to these analytical results?</li>
+                </ul>
+                
+                <div class="additional-advice-section">
+                    <h3>AI-Generated Decision Advice</h3>
+                    <div id="ai-advice"></div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="btn back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button id="restart-btn" class="btn secondary-btn"><i class="fas fa-redo"></i> Start New Decision</button>
+                    <button id="export-btn" class="btn primary-btn"><i class="fas fa-download"></i> Export Analysis</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Wise Choice - A tool for structured decision making</p>
+            <p><small>Built with <i class="fas fa-heart"></i> to help people make better decisions</small></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

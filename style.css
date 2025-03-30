@@ -1,0 +1,339 @@
+/* Base Styles */
+:root {
+    --primary-color: #3a86ff;
+    --primary-hover: #2a76ef;
+    --secondary-color: #8ecae6;
+    --accent-color: #ffb703;
+    --dark-color: #023047;
+    --light-color: #f1faee;
+    --danger-color: #e63946;
+    --success-color: #2a9d8f;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.tagline {
+    color: #666;
+    font-style: italic;
+}
+
+/* Main Application */
+.screen {
+    display: none;
+    background-color: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.secondary-btn:hover {
+    background-color: #7ab8d3;
+}
+
+.back-btn {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.back-btn:hover {
+    background-color: #dee2e6;
+}
+
+.btn i {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Options and Criteria Inputs */
+.option-input, .criteria-input {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.option-field, .criteria-field {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.criteria-weight {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.remove-option-btn, .remove-criteria-btn {
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Evaluation Matrix */
+#evaluation-matrix {
+    overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.evaluation-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.evaluation-table th, .evaluation-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.evaluation-table th {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.evaluation-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.rating-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+/* Results Screen */
+#scores-visual {
+    margin: 30px 0;
+}
+
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bar-item {
+    display: flex;
+    align-items: center;
+}
+
+.bar-label {
+    width: 30%;
+    font-weight: 600;
+}
+
+.bar-container {
+    width: 50%;
+    background-color: #e9ecef;
+    height: 30px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: white;
+    font-weight: 600;
+    transition: width 1s ease-out;
+}
+
+.bar-score {
+    width: 20%;
+    text-align: center;
+    font-weight: bold;
+}
+
+#top-option-display {
+    text-align: center;
+    background-color: var(--light-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--success-color);
+    margin-bottom: 30px;
+}
+
+#analysis-breakdown {
+    margin-bottom: 30px;
+}
+
+#considerations {
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+#considerations li {
+    margin-bottom: 10px;
+}
+
+.additional-advice-section {
+    background-color: var(--light-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+}
+
+#ai-advice {
+    padding: 15px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bar-label {
+        width: 40%;
+    }
+    
+    .bar-container {
+        width: 40%;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-buttons .btn {
+        width: 100%;
+    }
+    
+    .criteria-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .criteria-weight {
+        width: 100%;
+        margin-right: 0;
+    }
+}
